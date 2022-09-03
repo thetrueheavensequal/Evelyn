@@ -13,7 +13,8 @@ Don't use this vps for :
 ## How To Run ?
 
 # Setting up:
-* Fork this project
+* Fork this project.
+* Fill the gaps.
 
 Secrets Name | Uses | Notes
 ----- | ----- | -----
