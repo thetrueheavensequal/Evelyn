@@ -14,14 +14,13 @@ Don't use this vps for :
 
 # Setting up:
 * Fork this project
-* Go to your peoject page, click `Settings` and go to `Secrets`, and then click `New Secret` to add these secrets below:
 
 Secrets Name | Uses | Notes
 ----- | ----- | -----
-`NGROK_AUTH_TOKEN` | For **ngrok** tunnel uses | Go to website, and copy Your Authtoken from https://dashboard.ngrok.com/auth/your-authtoken
-`LINUX_USERNAME` | For VPS username `root` | Type any name you want
-`LINUX_USER_PASSWORD` | For VPS `root password` | Type any password you want
-`LINUX_MACHINE_NAME` | For VPS System `Computer` name | Type any name you want
+`NGROK AUTH TOKEN` | For **ngrok** tunnel uses | Go to website, and copy Your Authtoken from https://dashboard.ngrok.com/auth/your-authtoken
+`USERNAME` | For VPS username | Type any name you want
+`USER PASSWORD` | For VPS user password | Type any password you want
+`MACHINE_NAME` | For VPS System `Machine` name | Type any name you want
 ***
 
 * go to `Actions` Tab and select one of system workflow.
@@ -29,7 +28,7 @@ Secrets Name | Uses | Notes
 * Wait until a few minutes.
 * Go to `https://dashboard.ngrok.com/endpoints/status` and check if theres a one online tunnel running.
 * Copy the IP and connect through any software that supports SSH sonnection.
-* Fill in those login info, within username from `LINUX_USERNAME`and password from `LINUX_USER_PASSWORD` you typed.
+* Fill in those login info, within username from `USERNAME`and password from `USER PASSWORD` you typed.
 
 # License
 
