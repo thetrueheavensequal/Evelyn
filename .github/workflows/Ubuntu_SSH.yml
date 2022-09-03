@@ -1,20 +1,22 @@
 name: Ubuntu SSH
+
 on: 
   workflow_dispatch:
     inputs:
       authtoken:
-        description: 'Ngrok Auth Token'
+        description: 'NGROK AUTH TOKEN'
         required: true
       computername:
-        description: 'Computer Name'
-        default: 'ZVM'
+        description: 'MACHINE NAME'
+        default: 'ubuntu'
         required: true
       username:
-        description: 'Username'
-        default: 'ZUser'
+        description: 'USERNAME'
+        default: 'user'
         required: true
       password:
-        description: 'Password (minimum 8-10 numbers/characters)'
+        description: 'USER PASSWORD'
+        default: 'root'
         required: true
 
 defaults:
@@ -25,7 +27,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3.0.2
     - name: Mask Code & Pin.
       run: |
         _Token=$(jq -r '.inputs.authtoken' $GITHUB_EVENT_PATH)
