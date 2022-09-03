@@ -10,11 +10,11 @@ Don't use this vps for :
 * Any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden)
 * Any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used.
 
-# How To Run ?
+## How To Run ?
 
-* Setting up:
-1. Fork this project
-2. Go to your peoject page, click `Settings` and go to `Secrets`, and then click `New Secret` to add these secrets below:
+# Setting up:
+* Fork this project
+* Go to your peoject page, click `Settings` and go to `Secrets`, and then click `New Secret` to add these secrets below:
 
 Secrets Name | Uses | Notes
 ----- | ----- | -----
