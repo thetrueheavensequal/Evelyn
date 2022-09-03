@@ -14,7 +14,7 @@ Don't use this vps for :
 
 # Setting up:
 
-Secrets Name | Uses | Notes
+Variables Name | Uses | Notes
 ----- | ----- | -----
 `NGROK AUTH TOKEN` | For **ngrok** tunnel uses | Go to website, and copy Your Authtoken from https://dashboard.ngrok.com/auth/your-authtoken
 `USERNAME` | For VPS username | Type any name you want
