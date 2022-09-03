@@ -1,27 +1,47 @@
 name: Ubuntu SSH
 on: 
   workflow_dispatch:
+    inputs:
+      authtoken:
+        description: 'Ngrok Auth Token'
+        required: true
+      computername:
+        description: 'Computer Name'
+        default: 'ZVM'
+        required: true
+      username:
+        description: 'Username'
+        default: 'ZUser'
+        required: true
+      password:
+        description: 'Password (minimum 8-10 numbers/characters)'
+        required: true
+
 defaults:
   run:
     shell: bash
-        
+
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3.0.2
-#    - name: If failed, means ok
-#      run: ./not-exist-file.sh it bloke build
-    - name: Preparing Linux Environment
-      run: sudo apt-get update
-    - name: Setting Up the Ubuntu Environment
-    #  if: ${{ failure() }}
-      run: bash setup.sh
-      env:
-        LINUX_USERNAME: ${{ secrets.LINUX_USERNAME }}
-        LINUX_USER_PASSWORD: ${{ secrets.LINUX_USER_PASSWORD }}
-        LINUX_MACHINE_NAME: ${{ secrets.LINUX_MACHINE_NAME }}
-        NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
-    - name: Keep Running Ubuntu System and keepAlive
-     # if: ${{ failure() }}
-      run: sleep 6h
+    - uses: actions/checkout@v2
+    - name: Mask Code & Pin.
+      run: |
+        _Token=$(jq -r '.inputs.authtoken' $GITHUB_EVENT_PATH)
+        _CName=$(jq -r '.inputs.computername' $GITHUB_EVENT_PATH)
+        _Pass=$(jq -r '.inputs.password' $GITHUB_EVENT_PATH)
+        echo ::add-mask::$_Token
+        echo ::add-mask::$_CName
+        echo ::add-mask::$_Pass
+        echo NGROK_TOKEN="$_Token" >> $GITHUB_ENV
+        echo ComputerName="$_CName" >> $GITHUB_ENV
+        echo Password="$_Pass" >> $GITHUB_ENV
+    - name: Setup Environment
+      run: |
+        sudo apt-get update
+        bash Setup.sh "${{ env.NGROK_TOKEN }}" "${{ env.ComputerName }}" "${{ github.event.inputs.username }}" "${{ env.Password }}"
+    - name: IP for Connect to your SSH.
+      run: bash ip.sh "${{ github.event.inputs.username }}"
+    - name: Keep Alive.
+      run: ping 127.0.0.1 > null
