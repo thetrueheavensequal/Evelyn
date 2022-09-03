@@ -16,7 +16,7 @@ jobs:
       run: sudo apt-get update
     - name: Setting Up the Ubuntu Environment
     #  if: ${{ failure() }}
-      run: bash linux-ssh.sh
+      run: bash setup.sh
       env:
         LINUX_USERNAME: ${{ secrets.LINUX_USERNAME }}
         LINUX_USER_PASSWORD: ${{ secrets.LINUX_USER_PASSWORD }}
