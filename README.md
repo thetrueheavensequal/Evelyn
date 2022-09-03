@@ -20,7 +20,7 @@ Secrets Name | Uses | Notes
 `NGROK AUTH TOKEN` | For **ngrok** tunnel uses | Go to website, and copy Your Authtoken from https://dashboard.ngrok.com/auth/your-authtoken
 `USERNAME` | For VPS username | Type any name you want
 `USER PASSWORD` | For VPS user password | Type any password you want
-`MACHINE_NAME` | For VPS System `Machine` name | Type any name you want
+`MACHINE NAME` | For VPS System `Machine` name | Type any name you want
 ***
 
 * go to `Actions` Tab and select one of system workflow.
