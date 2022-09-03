@@ -10,7 +10,21 @@ Don't use this vps for :
 * Any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden)
 * Any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used.
 
-# How To Run    
+# How To Run ?
+
+## Setting up:
+1. Fork this project
+2. Go to your peoject page, click `Settings` and go to `Secrets`, and then click `New Secret` to add these secrets below:
+
+Secrets Name | Uses | Notes
+----- | ----- | -----
+`NGROK_AUTH_TOKEN` | For **ngrok** tunnel uses | Go to website, and copy Your Authtoken from https://dashboard.ngrok.com/auth/your-authtoken
+`LINUX_USERNAME` | For VPS username `root` | Type any name you want
+`LINUX_USER_PASSWORD` | For VPS `root password` | Type any password you want
+`LINUX_MACHINE_NAME` | For VPS System `Computer` name | Type any name you want
+`CHROME_HEADLESS_CODE` | For remoting linux desktop using google remote | Copy Codes from [here](https://remotedesktop.google.com/headless) and login with your google account, and then copy the code below `Debian Linux` blank. :warning: Each code can only be used for once, generate another code when u have used that one.
+***
+
 * go to `Actions` Tab and select one of system workflow.
 * Click `Run Workflow` button on the left of `This workflow has a workflow_dispatch event trigger` line.
 * Wait until a few minutes.
