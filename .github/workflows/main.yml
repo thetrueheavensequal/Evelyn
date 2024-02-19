@@ -42,8 +42,6 @@ jobs:
       run: |
         sudo apt-get update
         bash Setup.sh "${{ env.NGROK_TOKEN }}" "${{ env.ComputerName }}" "${{ github.event.inputs.username }}" "${{ env.Password }}"
-    - name: ngrok update
-      run: ngrok upgrade
     - name: IP for Connect to your SSH.
       run: bash Ip.sh "${{ github.event.inputs.username }}"
     - name: Keep Alive.
